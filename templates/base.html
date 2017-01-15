@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="/static/main.css" />
+        <title>Just Another Blog</title>
+    </head>
+    <body>
+        <a href="/" class="main-title">Just Another Blog</a>
+        <div class="login-area">
+            {% if user %}
+            <a class="login-link" href="/newpost">new post</a>
+            |
+            <a class="login-link" href="/logout">logout</a>
+            <br>
+            <p>welcome, {{user.name}}</p>
+            {% else %}
+            <a class="login-link" href="/login">login</a>
+            |
+            <a class="login-link" href="/signup">signup</a>
+            {% endif %}
+        </div>
+        <div id="content">
+        <p class="error">{{access_error}}</p>
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>

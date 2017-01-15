@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    {% for post in posts %}
+        {{post.render() | safe}}
+        <br>
+        <br>
+    {% endfor %}
+</html>
+{% endblock %}
