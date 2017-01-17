@@ -20,6 +20,7 @@
 
 # import models?
 
+from handlers.addcomment import AddCommentHandler
 from handlers.blogfront import BlogFrontHandler
 from handlers.login import LoginHandler
 from handlers.logout import LogoutHandler
@@ -29,6 +30,7 @@ from handlers.signup import SignupHandler
 from webapp2 import WSGIApplication
 
 app = WSGIApplication([
+    ('/(\d+)/addcomment/(\d+)', AddCommentHandler),
     ('/', BlogFrontHandler),
     ('/login', LoginHandler),
     ('/logout', LogoutHandler),

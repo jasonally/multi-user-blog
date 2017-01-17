@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<h2>add comment</h2>
+<form method='post'>
+    <label>
+        <div>comment</div>
+        <textarea placeholder="write your comment here..." name='comment'>{{comment}}</textarea>
+    </label>
+    <div class='error'>{{error}}</div>
+    <input type='submit'>
+</form>
+</html>
+{% endblock %}

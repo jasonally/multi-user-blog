@@ -21,7 +21,7 @@ class NewPostHandler(BlogHandler):
         error = "Please enter both a subject and content."
 
         if subject and content:
-            p = Post(parent=helpers.blog_key(), subject=subject, content=content)
+            p = Post(parent=helpers.blog_key(), subject=subject, comment=comment)
             p.put()
             self.redirect('/%s' % str(p.key().id()))
         else:

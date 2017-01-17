@@ -2,4 +2,28 @@
 
 {% block content %}
   {{post.render() | safe}}
+{% if user %}
+    <br>
+    <hr>
+    <a href="/{{post.key().id()}}/addcomment/{{user.key().id()}}">
+    add comment
+    </a>
+{% endif %}
 {% endblock %}
+
+
+
+
+<!-- {% if user %}
+<br>
+<hr>
+<h2>add comment</h2>
+<form method='post'>
+    <label>
+        <div>comment</div>
+        <textarea placeholder="write your comment here..." name='comment'>{{comment}}</textarea>
+    </label>
+    <div class='error'>{{comment_error}}</div>
+    <input type='submit'>
+</form>
+{% endif %} -->
