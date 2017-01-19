@@ -1,4 +1,5 @@
 import helpers
+import time
 
 from google.appengine.ext import db
 from handlers.blog import BlogHandler
@@ -12,7 +13,7 @@ class DeletePostHandler(BlogHandler):
                 parent=helpers.blog_key())
             p = db.get(key)
             p.delete()
-
+            time.sleep(0.1)
             self.redirect('/')
         elif not self.user:
             self.redirect('/login')
@@ -23,9 +24,11 @@ class DeletePostHandler(BlogHandler):
             key = db.Key.from_path('Post', int(post_id),
                 parent=helpers.blog_key())
             post = db.get(key)
+
             comments = db.GqlQuery(
             "SELECT * FROM Comment WHERE ancestor is :1 ORDER BY created ASC",
                 key)
+
             error = "sorry, you don't have permission to delete this post"
             self.render("permalink.html", post=post, comments=comments,
                 error=error)

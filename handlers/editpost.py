@@ -20,7 +20,8 @@ class EditPostHandler(BlogHandler):
         elif not self.user:
             self.redirect('/login')
         else:
-            self.render('front.html', error="you cannot edit a post you didn't create")
+            error = "you cannot edit a post you didn't create"
+            self.render('front.html', error=error)
 
     def post(self, post_id):
         key = db.Key.from_path('Post', int(post_id), parent=helpers.blog_key())
@@ -40,9 +41,8 @@ class EditPostHandler(BlogHandler):
                 p.put()
                 self.redirect('/%s' % str(p.key().id()))
             else:
-                # self.render('editpost.html', subject=subject, content=content,
-                #     post_id=post_id, error=error)
-
                 self.render_editpost(subject, content, post_id, error)
+
         else:
-            self.render('front.html', error="you cannot edit a post you didn't create")
+            error = "you cannot edit a post you didn't create"
+            self.render('front.html', error=error)

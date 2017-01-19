@@ -22,23 +22,31 @@
 
 from handlers.addcomment import AddCommentHandler
 from handlers.blogfront import BlogFrontHandler
+from handlers.deletecomment import DeleteCommentHandler
+from handlers.deletepost import DeletePostHandler
 from handlers.editcomment import EditCommentHandler
 from handlers.editpost import EditPostHandler
+from handlers.likepost import LikePostHandler
 from handlers.login import LoginHandler
 from handlers.logout import LogoutHandler
 from handlers.newpost import NewPostHandler
 from handlers.post import PostHandler
 from handlers.signup import SignupHandler
+from handlers.unlikepost import UnlikePostHandler
 from webapp2 import WSGIApplication
 
 app = WSGIApplication([
-    ('/(\d+)/addcomment/(\d+)', AddCommentHandler),
+    ('/(\d+)/add/(\d+)', AddCommentHandler),
     ('/', BlogFrontHandler),
-    ('/([0-9]+)/([0-9]+)/editcomment/([0-9]+)', EditCommentHandler),
+    ('/([0-9]+)/([0-9]+)/delete/([0-9]+)', DeleteCommentHandler),
+    ('/([0-9]+)/delete/([0-9]+)', DeletePostHandler),
+    ('/([0-9]+)/([0-9]+)/edit/([0-9]+)', EditCommentHandler),
     ('/(\d+)/edit', EditPostHandler),
+    ('/(\d+)/like', LikePostHandler),
     ('/login', LoginHandler),
     ('/logout', LogoutHandler),
     ('/newpost', NewPostHandler),
     ('/signup', SignupHandler),
     ('/(\d+)', PostHandler),
+    ('/(\d+)/unlike', UnlikePostHandler),
 ], debug=True)

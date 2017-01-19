@@ -7,13 +7,23 @@
     {{post.render() | safe}}
     {% if user %}
         <br>
-        <a href="/{{post.key().id()}}/addcomment/{{user.key().id()}}">
-        add comment</a>
-        &nbsp;
         {% if post.user_id == user.key().id() %}
             <a href="/{{post.key().id()}}/edit">
             edit post</a>
+            |
+            <a href="/{{post.key().id()}}/delete/{{post.user_id}}">
+            delete post</a>
         {% endif %}
+        <div>
+            {% if not post.user_id == user.key().id() %}
+            <a href="/{{post.key().id()}}/like">
+                like post</a>
+            {% endif %}
+            likes: {{post.likes}}
+        </div>
+        <br>
+        <a href="/{{post.key().id()}}/add/{{user.key().id()}}">
+        add comment</a>
     {% endif %}
     {% if comments %}
     <br>
@@ -24,8 +34,11 @@
             <h4>{{c.user_name}}, {{c.created.strftime("%b %d, %Y")}}</h4>
             <p>{{c.comment}}</p>
             {% if user and user.key().id() == c.user_id %}
-                <a href="/{{post.key().id()}}/{{c.user_id}}/editcomment/{{ c.key().id() }}">
+                <a href="/{{post.key().id()}}/{{c.user_id}}/edit/{{ c.key().id() }}">
                 edit comment</a>
+                |
+                <a href="/{{post.key().id()}}/{{c.user_id}}/delete/{{ c.key().id() }}">
+                delete comment</a>
             {% endif %}
             <br>
         {% endfor %}

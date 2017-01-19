@@ -13,7 +13,8 @@ class NewPostHandler(BlogHandler):
         if self.user:
             self.render_newpost()
         else:
-            self.render('front.html', access_error="you must be signed in to create a new post")
+            access_error = "you must be signed in to create a new post"
+            self.render('front.html', access_error=access_error)
 
     def post(self):
         if not self.user:

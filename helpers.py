@@ -8,12 +8,12 @@ from google.appengine.ext import db
 from random import choice
 from string import ascii_letters
 
-##### Initialize Jinja2
+# Initialize Jinja2
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                 autoescape = True)
 
-##### Account validation
+# Account validation
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 PASSWORD_RE = re.compile(r"^.{3,20}$")
 EMAIL_RE = re.compile(r"^[\S]+@[\S]+.[\S]+$")
@@ -27,12 +27,12 @@ def valid_password(password):
 def valid_email(email):
     return EMAIL_RE.match(email)
 
-##### Rendering Jinja2 templates
+# Rendering Jinja2 templates
 def render_str(template, **params):
     t = jinja_env.get_template(template)
     return t.render(params)
 
-##### Datastore keys
+# Datastore keys
 # Worth having so it's easier to build more blogs in the future using the same
 # datastore
 def blog_key(name='default'):
@@ -41,10 +41,10 @@ def blog_key(name='default'):
 def user_key(name='default'):
     return db.Key.from_path('users', name)
 
-##### Account security
+# Account security
 SECRET = 'eiTh0aaD'
 
-# xrange() doesn't exist in Python 3, FYI
+# xrange() doesn't exist in Python 3
 def make_salt(length = 5):
     return ''.join(choice(ascii_letters) for x in range(length))
 

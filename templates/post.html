@@ -3,15 +3,15 @@
     <div class="post">
         <div class="post-heading">
             <a href="/{{post.key().id()}}" class="post-title">{{post.subject}}</a>
-        <div class="post-date">
-          {{post.created.strftime("%b %d, %Y")}}
-        </div>
+            <div class="post-date">
+                {{post.created.strftime("%b %d, %Y")}}
+            </div>
         </div>
         <div class="post-content">
-        posted by {{author}}
-        <br>
-        <br>
-        {{post._render_text | safe}}
+            posted by {{username}}
+            <br>
+            <br>
+            {{post._render_text | safe}}
         </div>
     </div>
 </html>

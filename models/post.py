@@ -6,11 +6,9 @@ class Post(db.Model):
     subject = db.StringProperty(required=True)
     content = db.TextProperty(required=True)
     user_id = db.IntegerProperty(required=True)
-    #likes = db.IntegerProperty(default=0)
+    likes = db.IntegerProperty(default=0)
     created = db.DateTimeProperty(auto_now_add=True)
     last_modified = db.DateTimeProperty(auto_now=True)
-
-    # things to likely add, user_id and likes
 
     def render(self):
         key = db.Key.from_path('User', int(self.user_id),
@@ -18,4 +16,4 @@ class Post(db.Model):
         user = db.get(key)
 
         self._render_text = self.content.replace('\n', '<br>')
-        return helpers.render_str("post.html", post=self, author=user.name)
+        return helpers.render_str("post.html", post=self, username=user.name)

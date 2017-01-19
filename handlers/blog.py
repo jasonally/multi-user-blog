@@ -15,9 +15,9 @@ class BlogHandler(RequestHandler):
     def render(self, template, **kwargs):
         self.write(self.render_str(template, **kwargs))
 
-    # This function runs every time a page that inherits from Handler loads
-    # If the user_id cookie is invalid, the page can trigger a redirect back
-    # to the login page
+    # This function runs every time a page that inherits from Handler loads.
+    # If the user_id cookie is invalid, you can trigger a redirect back
+    # to the login page.
     def initialize(self, *a, **kwargs):
         RequestHandler.initialize(self, *a, **kwargs)
         user_id = self.read_secure_cookie('user_id')

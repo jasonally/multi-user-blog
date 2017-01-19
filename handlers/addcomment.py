@@ -13,7 +13,8 @@ class AddCommentHandler(BlogHandler):
         if self.user:
             self.render_addcomment()
         else:
-            self.render('front.html', access_error="you must be signed in to add a comment")
+            access_error = "you must be signed in to add a comment"
+            self.render('front.html', access_error=access_error)
 
     def post(self, post_id, user_id):
         comment = self.request.get('comment')
