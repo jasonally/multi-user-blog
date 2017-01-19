@@ -16,12 +16,17 @@ class NewPostHandler(BlogHandler):
             self.render('front.html', access_error="you must be signed in to create a new post")
 
     def post(self):
-        subject = self.request.get('subject')
-        content = self.request.get('content')
-        error = "Please enter both a subject and content."
+        if not self.user:
+            return self.redirect('/login')
+
+        if self.user:
+            subject = self.request.get('subject')
+            content = self.request.get('content')
+            error = "please enter both a subject and content"
 
         if subject and content:
-            p = Post(parent=helpers.blog_key(), subject=subject, comment=comment)
+            p = Post(parent=helpers.blog_key(), subject=subject,
+                content=content, user_id=self.user.key().id())
             p.put()
             self.redirect('/%s' % str(p.key().id()))
         else:

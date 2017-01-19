@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 {% block content %}
-    <h2>new post</h2>
+    <h2>edit post</h2>
     <form method='post'>
         <label>
             <div>subject</div>
@@ -14,7 +14,13 @@
             <textarea placeholder="write something here..." name='content'>{{content}}</textarea>
         </label>
         <div class='error'>{{error}}</div>
+        <button style="font-size: 14px" onclick="goBack()">go back</button>
         <input type='submit'>
     </form>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
 {% endblock %}
 </html>

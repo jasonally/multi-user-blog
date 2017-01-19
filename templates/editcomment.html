@@ -3,14 +3,20 @@
 <!DOCTYPE html>
 <html>
 {% block content %}
-    <h2>add comment</h2>
+    <h2>edit comment</h2>
     <form method='post'>
         <label>
             <div>comment</div>
             <textarea placeholder="write your comment here..." name='comment'>{{comment}}</textarea>
         </label>
         <div class='error'>{{error}}</div>
+        <button style="font-size: 14px" onclick="goBack()">go back</button>
         <input type='submit'>
     </form>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 {% endblock %}
 </html>

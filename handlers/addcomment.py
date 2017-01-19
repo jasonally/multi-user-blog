@@ -17,12 +17,12 @@ class AddCommentHandler(BlogHandler):
 
     def post(self, post_id, user_id):
         comment = self.request.get('comment')
-        error = "Please enter a comment."
+        error = "please enter a comment"
 
-        #key = db.Key.from_path('Post', int(post_id), parent=helpers.blog_key())
+        key = db.Key.from_path('Post', int(post_id), parent=helpers.blog_key())
 
         if comment:
-            c = Comment(user_id=int(user_id), comment=comment,
+            c = Comment(parent=key, user_id=int(user_id), comment=comment,
                         user_name = self.user.name)
             c.put()
             self.redirect('/' + post_id)

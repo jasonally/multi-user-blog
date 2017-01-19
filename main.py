@@ -22,6 +22,8 @@
 
 from handlers.addcomment import AddCommentHandler
 from handlers.blogfront import BlogFrontHandler
+from handlers.editcomment import EditCommentHandler
+from handlers.editpost import EditPostHandler
 from handlers.login import LoginHandler
 from handlers.logout import LogoutHandler
 from handlers.newpost import NewPostHandler
@@ -32,6 +34,8 @@ from webapp2 import WSGIApplication
 app = WSGIApplication([
     ('/(\d+)/addcomment/(\d+)', AddCommentHandler),
     ('/', BlogFrontHandler),
+    ('/([0-9]+)/([0-9]+)/editcomment/([0-9]+)', EditCommentHandler),
+    ('/(\d+)/edit', EditPostHandler),
     ('/login', LoginHandler),
     ('/logout', LogoutHandler),
     ('/newpost', NewPostHandler),

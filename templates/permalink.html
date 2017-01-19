@@ -1,29 +1,34 @@
 {% extends "base.html" %}
 
+<!DOCTYPE html>
+<html>
+{{error}}
 {% block content %}
-  {{post.render() | safe}}
-{% if user %}
+    {{post.render() | safe}}
+    {% if user %}
+        <br>
+        <a href="/{{post.key().id()}}/addcomment/{{user.key().id()}}">
+        add comment</a>
+        &nbsp;
+        {% if post.user_id == user.key().id() %}
+            <a href="/{{post.key().id()}}/edit">
+            edit post</a>
+        {% endif %}
+    {% endif %}
+    {% if comments %}
+    <br>
     <br>
     <hr>
-    <a href="/{{post.key().id()}}/addcomment/{{user.key().id()}}">
-    add comment
-    </a>
-{% endif %}
+    <h2>comments</h2>
+        {% for c in comments %}
+            <h4>{{c.user_name}}, {{c.created.strftime("%b %d, %Y")}}</h4>
+            <p>{{c.comment}}</p>
+            {% if user and user.key().id() == c.user_id %}
+                <a href="/{{post.key().id()}}/{{c.user_id}}/editcomment/{{ c.key().id() }}">
+                edit comment</a>
+            {% endif %}
+            <br>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
-
-
-
-
-<!-- {% if user %}
-<br>
-<hr>
-<h2>add comment</h2>
-<form method='post'>
-    <label>
-        <div>comment</div>
-        <textarea placeholder="write your comment here..." name='comment'>{{comment}}</textarea>
-    </label>
-    <div class='error'>{{comment_error}}</div>
-    <input type='submit'>
-</form>
-{% endif %} -->
+</html>
