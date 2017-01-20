@@ -19,3 +19,6 @@ Alternatively, this blog is on the web at jasonally-fsnd-blog.appspot.com.
 
 ### Areas for improvement
 The blog's appearance could be improved by installing a different theme, though it already has the basics of responsive design. Comments also do not properly display line breaks, as already noted in a TODO in comment.py.
+
+### Thank you
+The Udacity, Stack Overflow, and Github communities were invaluable in helping me finish this project. I'm happy to return the favor to others as they learn about web development as well.
