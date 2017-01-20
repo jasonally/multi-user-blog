@@ -5,11 +5,11 @@ This project uses material from Udacity's Intro to Backend course to build a mul
 
 ### Directory contents
 In addition to this README.md file you will find:
-`handlers/` - Contains the handlers that generate pages on the blog.
-`models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
-`static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
-`templates/` - Contains the Jinja templates used to render HTML on the blog's pages.
-`helpers.py` - A file containing Python helper functions each handler uses
+-`handlers/` - Contains the handlers that generate pages on the blog.
+-`models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
+-`static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
+-`templates/` - Contains the Jinja templates used to render HTML on the blog's pages.
+-`helpers.py` - A file containing Python helper functions each handler uses
 As well as main.py, app.yaml, and index.yaml files which are customary in webapp2 web applications.
 
 ### How to view the blog
