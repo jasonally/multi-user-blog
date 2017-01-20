@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="/static/main.css" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="/static/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/main.css" />
         <title>intro to backend blog</title>
     </head>
     <body>
-        <a href="/" class="main-title">intro to backend blog</a>
-        <div class="login-area">
-            {% if user %}
-            <a class="login-link" href="/newpost">new post</a>
-            |
-            <a class="login-link" href="/logout">logout</a>
-            <br>
-            <p>welcome, {{user.name}}</p>
-            {% else %}
-            <a class="login-link" href="/login">login</a>
-            |
-            <a class="login-link" href="/signup">signup</a>
-            {% endif %}
-        </div>
-        <div id="content">
-        <p class="error">{{access_error}}</p>
-        {% block content %}
-        {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 login-area">
+                    {% if user %}
+                    <a class="login-link" href="/newpost">new post</a>
+                    |
+                    <a class="login-link" href="/logout">logout</a><br>
+                    <p>welcome, {{user.name}}</p>
+                    {% else %}
+                    <a class="login-link" href="/login">login</a>
+                    |
+                    <a class="login-link" href="/signup">signup</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/" class="main-title">intro to backend blog</a>
+                </div>
+            </div>
+            <div class="row">
+                <div id="col-md-12 content">
+                    <p class="error">{{access_error}}</p>
+                </div>
+                    {% block content %}
+                    {% endblock %}
+            </div>
         </div>
     </body>
 </html>

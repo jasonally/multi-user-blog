@@ -4,11 +4,19 @@ from handlers.blog import BlogHandler
 from models.user import User
 
 class SignupHandler(BlogHandler):
+    """Allows users to create accounts on the blog web app. When a user provides
+    valid sign up information, the user is logged in and redirected to the blog
+    front page.
+    """
+
+    def render_signup(self, username='', email='', username_error='',
+        password_error='', verify_error='', email_error=''):
+        self.render('signup.html', username=username, email=email,
+            username_error=username_error, password_error=password_error,
+            verify_error=verify_error, email_error=email_error)
 
     def get(self):
-        self.render('signup.html', username='', password='', verify='',
-                    email='', username_error='', password_error='',
-                    verify_error='', email_error='')
+        self.render_signup()
 
     def post(self):
         self.username = self.request.get('username')
@@ -32,7 +40,7 @@ class SignupHandler(BlogHandler):
             params['verify_error'] = "your passwords didn't match"
             has_error = True
 
-        # Email address is optional
+        # Email address is optional.
         if self.email:
             if not helpers.valid_email(self.email):
                 params['email_error'] = "that's not a valid email address"
@@ -41,7 +49,7 @@ class SignupHandler(BlogHandler):
         # **params -- The way to pass a dictionary into render as a parameter.
         # **[dictionary_name] is the notation.
         if has_error:
-            self.render('signup.html', **params)
+            self.render_signup(**params)
         else:
             self.done()
 
@@ -49,9 +57,10 @@ class SignupHandler(BlogHandler):
         u = User.by_name(self.username)
         if u:
             username_error = "that username already exists"
-            self.render('signup.html', username_error=username_error)
+            self.render_signup(username_error=username_error)
         else:
             u = User.register(self.username, self.password, self.email)
             u.put()
+            # See blog.py for the login() function.
             self.login(u)
             self.redirect('/')

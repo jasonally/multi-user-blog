@@ -5,6 +5,10 @@ from handlers.blog import BlogHandler
 from models.like import Like
 
 class LikePostHandler(BlogHandler):
+    """Allows users to like other users' blog posts. Handler checks the Like
+    entity to see if the user has already liked the post. If not, the likes
+    for the post is incremented by 1.
+    """
 
     def get(self, post_id):
         key = db.Key.from_path('Post', int(post_id), parent=helpers.blog_key())

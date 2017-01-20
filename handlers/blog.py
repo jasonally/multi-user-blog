@@ -4,6 +4,10 @@ from models.user import User
 from webapp2 import RequestHandler
 
 class BlogHandler(RequestHandler):
+    """Contains methods that help render Jinja templates and blog posts as well
+    as help with user authentication. Every other handler inherits from this
+    handler.
+    """
 
     def write(self, *a, **kwargs):
         self.response.out.write(*a, **kwargs)
@@ -15,10 +19,11 @@ class BlogHandler(RequestHandler):
     def render(self, template, **kwargs):
         self.write(self.render_str(template, **kwargs))
 
-    # This function runs every time a page that inherits from Handler loads.
-    # If the user_id cookie is invalid, you can trigger a redirect back
-    # to the login page.
     def initialize(self, *a, **kwargs):
+        """Runs every time a page which inherits from BlogHandler loads. If
+        the user_id cookie is invalid, self.user will be False and can be used
+        to prevent unauthorized access to parts of the blog.
+        """
         RequestHandler.initialize(self, *a, **kwargs)
         user_id = self.read_secure_cookie('user_id')
         self.user = user_id and User.by_id(int(user_id))

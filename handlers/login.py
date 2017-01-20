@@ -2,6 +2,10 @@ from handlers.blog import BlogHandler
 from models.user import User
 
 class LoginHandler(BlogHandler):
+    """Renders login page. If user successfully logs in, the login() method
+    puts a user_id cookie on the user's device and redirects them back to the
+    blog front page. Otherwise, the login page reloads with an error message.
+    """
 
     def get(self):
         self.render('login.html', error='')

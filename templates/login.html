@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="/static/main.css" />
-        <title>Login</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="/static/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/main.css" />
+        <title>login</title>
     </head>
     <body>
-        <h2>Login</h2>
-        <form method="post">
-            <table>
-                <tr>
-                    <td class="label">
-                        Username
-                    </td>
-                    <td>
-                        <input type="text" name="username" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label">
-                        Password
-                    </td>
-                    <td>
-                        <input type="password" name="password" value="">
-                    </td>
-                </tr>
-            </table>
-            <div class="error">
-                {{error}}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>login</h2>
+                </div>
             </div>
-            <input type="submit">
-        </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post">
+                        <table>
+                            <tr>
+                                <td class="label">username</td>
+                                <td><input type="text" name="username" value="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">password</td>
+                                <td><input type="password" name="password"
+                                value=""></td>
+                            </tr>
+                        </table>
+                        <div class="error">
+                            {{error}}
+                        </div>
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

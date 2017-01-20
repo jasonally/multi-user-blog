@@ -2,46 +2,61 @@
 
 <!DOCTYPE html>
 <html>
-{{error}}
 {% block content %}
     {{post.render() | safe}}
-    {% if user %}
-        <br>
-        {% if post.user_id == user.key().id() %}
-            <a href="/{{post.key().id()}}/edit">
-            edit post</a>
-            |
-            <a href="/{{post.key().id()}}/delete/{{post.user_id}}">
-            delete post</a>
-        {% endif %}
-        <div>
-            {% if not post.user_id == user.key().id() %}
-            <a href="/{{post.key().id()}}/like">
-                like post</a>
+    <div class="row">
+        <div class="col-md-12">
+            {% if user %}
+                <div>
+                    <p class="smaller-text">
+                    {% if post.user_id == user.key().id() %}
+                        <a href="/{{post.key().id()}}/edit">edit post</a>
+                        |
+                        <a href="/{{post.key().id()}}/delete/{{post.user_id}}">
+                        delete post</a>
+                        <br>
+                    {% endif %}
+                    <br>
+                    likes: {{post.likes}}
+                    <br>
+                    {% if not post.user_id == user.key().id() %}
+                    <a href="/{{post.key().id()}}/like">
+                        like post</a>
+                    |
+                    <a href="/{{post.key().id()}}/unlike">
+                    unlike post</a>
+                    <br>
+                    {% endif %}
+                    <a href="/{{post.key().id()}}/add/{{user.key().id()}}">
+                    add comment</a>
+                    </p>
+                </div>
             {% endif %}
-            likes: {{post.likes}}
         </div>
-        <br>
-        <a href="/{{post.key().id()}}/add/{{user.key().id()}}">
-        add comment</a>
-    {% endif %}
-    {% if comments %}
-    <br>
-    <br>
-    <hr>
-    <h2>comments</h2>
-        {% for c in comments %}
-            <h4>{{c.user_name}}, {{c.created.strftime("%b %d, %Y")}}</h4>
-            <p>{{c.comment}}</p>
-            {% if user and user.key().id() == c.user_id %}
-                <a href="/{{post.key().id()}}/{{c.user_id}}/edit/{{ c.key().id() }}">
-                edit comment</a>
-                |
-                <a href="/{{post.key().id()}}/{{c.user_id}}/delete/{{ c.key().id() }}">
-                delete comment</a>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h3 class="comment-heading">comments</h3>
+            </div>
+            {% if comments %}
+                {% for c in comments %}
+                    <div class="comment-content">
+                        <p class="comment-title">{{c.user_name}}</p>
+                        <p class="comment-title-lower">posted
+                            {{c.created.strftime("%b %d, %Y %I:%M %p")}}</p>
+                        <p>{{c.comment}}</p>
+                        {% if user and user.key().id() == c.user_id %}
+                            <a href="/{{post.key().id()}}/{{c.user_id}}/edit/{{c.key().id()}}">
+                            edit comment</a>
+                            |
+                            <a href="/{{post.key().id()}}/{{c.user_id}}/delete/{{c.key().id()}}">
+                            delete comment</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             {% endif %}
-            <br>
-        {% endfor %}
-    {% endif %}
+        </div>
+    </div>
 {% endblock %}
 </html>

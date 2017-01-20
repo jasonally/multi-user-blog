@@ -5,8 +5,13 @@ from google.appengine.ext import db
 from handlers.blog import BlogHandler
 
 class DeleteCommentHandler(BlogHandler):
+    """Allows users to delete their own comments. Obtains the entry for the
+    comment, deletes it, and redirects users back to the blog post page.
+    """
 
     def get(self, post_id, post_user_id, comment_id):
+        # The user who created the comment is the only one allowed to delete the
+        # post.
         if self.user and self.user.key().id() == int(post_user_id):
             post_key = db.Key.from_path('Post', int(post_id),
                 parent=helpers.blog_key())
@@ -15,7 +20,7 @@ class DeleteCommentHandler(BlogHandler):
             c = db.get(key)
             c.delete()
 
-            time.sleep(0.1)     # Time delay so deleted post is removed
+            time.sleep(0.1)     # Delay so deleted post is removed from front
             self.redirect('/' + post_id)
         elif not self.user:
             self.redirect('/login')

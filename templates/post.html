@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
     <div class="post">
-        <div class="post-heading">
-            <a href="/{{post.key().id()}}" class="post-title">{{post.subject}}</a>
-            <div class="post-date">
-                {{post.created.strftime("%b %d, %Y")}}
+        <div class="row">
+            <div class="col-md-8">
+                <a href="/{{post.key().id()}}" class="post-title">
+                {{post.subject}}</a>
+            </div>
+            <div class="col-md-4 post-date">
+                {{post.created.strftime("%b %d, %Y %I:%M %p")}}
             </div>
         </div>
-        <div class="post-content">
-            posted by {{username}}
-            <br>
-            <br>
-            {{post._render_text | safe}}
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="post-header">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 post-content">
+                <p class="author">posted by {{username | safe}}</p>
+                <p>{{post._render_text | safe}}</p>
+            </div>
         </div>
     </div>
 </html>

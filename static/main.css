@@ -2,33 +2,18 @@ body {
     position: relative;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
-
-    width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 10px;
     color: #333;
 }
 
-.login-area {
-    font-size: 13px;
-    color: gray;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    text-align:right;
+a {
+    color: black;
 }
 
-.login-link {
-    color: gray;
+a:hover {
     text-decoration: none;
-}
-
-.login-link:visited {
-    color: gray;
-}
-
-.login-link:hover {
-    text-decoration: underline;
 }
 
 h2 {
@@ -37,35 +22,104 @@ h2 {
     margin-bottom: 20px;
 }
 
-.error {
-    color: red;
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+input[type=password], input[type=text] {
+    width: 500px;
+    max-width:100%;
+    font-size: 20px;
+    padding: 2px;
+    font-family: monospace;
+}
+
+input[type=submit] {
+  font-size: 13px;
 }
 
 label {
   display: block;
   font-size: 20px;
+  max-width:100%;
 }
 
 label + label {
     margin-top: 20px;
 }
 
-input[type=password], input[type=text] {
-    width: 500px;
-    font-size: 20px;
-    padding: 2px;
-    font-family: monospace;
-}
-
 textarea {
   width: 500px;
+  max-width: 100%;
   height: 400px;
-  font-size: 17px;
+  font-size: 16px;
   font-family: monospace;
 }
 
-input[type=submit] {
-  font-size: 24px;
+.age {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: gray;
+    font-size: 12px;
+}
+
+.author {
+    font-style: oblique;
+}
+
+.comment-content {
+    font-size: 13px;
+    border-bottom: 1px solid #666;
+    margin-bottom: 10px;
+}
+
+.comment-heading {
+    position: relative;
+    border-bottom: 2px solid #666;
+}
+
+.comment-title {
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 10%;
+    font-weight: bold;
+}
+
+.comment-title-lower {
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 10%;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.container-fluid {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-area {
+    font-size: 13px;
+    color: gray;
+    position: relative;
+    text-align:right;
+}
+
+.login-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    color: #23527c;
+}
+
+.error {
+    color: red;
 }
 
 .main-title {
@@ -82,39 +136,33 @@ input[type=submit] {
     margin-top: 15px;
 }
 
-.post-heading {
+.post-date {
+    padding-top: 10px;
     position: relative;
+    text-align: right;
+    color: #999;
+    text-transform: lowercase;
+
+}
+
+.post-header {
     border-bottom: 3px solid #666;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .post-title {
     font-size: 24px;
     font-weight: bold;
-
     text-decoration: none;
     color: #333;
-}
-
-.post-title:visisted {
-    color: #333;
-}
-
-.post-date {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    color: #999;
-
+    vertical-align: top;
 }
 
 .post-content {
     margin-top: 5px;
 }
 
-.age {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    color: gray;
-    font-size: 12px;
+.smaller-text {
+    font-size: 13px;
 }

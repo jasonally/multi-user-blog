@@ -13,12 +13,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-
-# Is this necessary?
-# import helpers
-
-# import models?
 
 from handlers.addcomment import AddCommentHandler
 from handlers.blogfront import BlogFrontHandler
