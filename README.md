@@ -5,11 +5,11 @@ This project uses material from Udacity's Intro to Backend course to build a mul
 
 ### Directory contents
 In addition to this README.md file you will find:
-1.`handlers/` - Contains the handlers that generate pages on the blog.
-2.`models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
-3.`static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
-4.`templates/` - Contains the Jinja templates used to render HTML on the blog's pages.
-5.`helpers.py` - A file containing Python helper functions each handler uses.
+1. `handlers/` - Contains the handlers that generate pages on the blog.
+2. `models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
+3. `static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
+4. `templates/` - Contains the Jinja templates used to render HTML on the blog's pages.
+5. `helpers.py` - A file containing Python helper functions each handler uses.
 As well as main.py, app.yaml, and index.yaml files which are customary in webapp2 web applications.
 
 ### How to view the blog
@@ -21,4 +21,5 @@ Alternatively, this blog is on the web at jasonally-fsnd-blog.appspot.com.
 The blog's appearance could be improved by installing a different theme, though it already has the basics of responsive design. Comments also do not properly display line breaks, as already noted in a TODO in comment.py.
 
 ### Thank you
-The Udacity, Stack Overflow, and Github communities were invaluable in helping me finish this project. I'm happy to return the favor to others as they learn about web development as well.
+The Udacity, Stack Overflow, and Github communities were invaluable in helping me finish this project. I'm happy to return the favor to others as they learn about web development.
+
