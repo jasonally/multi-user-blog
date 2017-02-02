@@ -4,7 +4,6 @@
 This project uses material from Udacity's Intro to Backend course to build a multi-user blog. Users can create accounts on the blog, post entries, and like and comment on other users' posts.
 
 ### Directory contents
-In addition to this README.md file you will find:
 1. `handlers/` - Contains the handlers that generate pages on the blog.
 2. `models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
 3. `static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
@@ -22,4 +21,3 @@ The blog's appearance could be improved by installing a different theme, though 
 
 ### Thank you
 The Udacity, Stack Overflow, and Github communities were invaluable in helping me finish this project. I'm happy to return the favor to others as they learn about web development.
-
