@@ -14,6 +14,7 @@ As well as main.py, app.yaml, and index.yaml files which are customary in webapp
 ### How to view the blog
 1. Clone this repo to your computer, open Terminal and navigate to the directory.
 2. Run dev_appserver.py . to launch the blog at localhost:8080.
+
 Alternatively, this blog is on the web at jasonally-fsnd-blog.appspot.com.
 
 ### Areas for improvement
