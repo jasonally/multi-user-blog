@@ -5,7 +5,7 @@ This project uses material from Udacity's [Intro to Backend](https://www.udacity
 
 ### Directory contents
 1. `handlers/` - Contains the handlers that generate pages on the blog.
-2. `models/` - Contains the Google App Engine datastores which contain data about the users, posts, comments, and likes.
+2. `models/` - Contains the [Google App Engine](https://cloud.google.com/appengine/) datastores which contain data about the users, posts, comments, and likes.
 3. `static/` - Contains the Bootstrap CSS files as well as main.css, which provides custom CSS formatting for the blog.
 4. `templates/` - Contains the [Jinja](http://jinja.pocoo.org/) templates used to render HTML on the blog's pages.
 5. `helpers.py` - A file containing Python helper functions each handler uses.
